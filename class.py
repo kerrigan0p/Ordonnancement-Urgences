@@ -1,6 +1,6 @@
 
 class Patient():
-    def __init__(self,id = 0,age=0,sexe=0,patho=0,arrivée=0) -> None:
+    def __init__(self,id = 0,age=0,sexe=0,patho=0,arrivée=0) -> None: #Patient() représente le patient null
         self.id = id
         self.age = age
         self.sexe = sexe 
@@ -9,8 +9,14 @@ class Patient():
         self.patho = patho 
         self.gravite = int(self.patho/2 + 1) #Arbitraire
         self.duree = int(self.patho/3 + 1) #Arbitraire
-        self.state = 0 #0 Si en attente, 1 sinon
+        self.state = 0 #A determiner selon le parcours du patient
     
+class Box():
+    def __init__(self,id, liste_soignants,patient=Patient()) -> None:
+        self.id = id
+        self.patient = patient
+        self.soignants = liste_soignants
+        
 class Soignant():
     def __init__(self,id,competence) -> None:
         self.id = id
